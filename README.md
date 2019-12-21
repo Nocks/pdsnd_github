@@ -8,7 +8,7 @@ This was my 2nd Project of the [Programming for Data Science with Python](https:
 In this project, I wrote Python code to import US bike share data and answered interesting questions about it by computing descriptive statistics. I also wrote a script that takes in raw input to create an interactive experience in the terminal to present these statistics.
 
 ## Statistics Computed
-I learned about bike share use in Chicago, New York City, and Washington by computing a variety of descriptive statistics. In this project, wrote code to provide the following information:
+I learned about [bike share](https://www.bikeshare.com/) use in Chicago, New York City, and Washington by computing a variety of descriptive statistics. In this project, wrote code to provide the following information:
 
 ### 1 Popular times of travel (i.e., occurs most often in the start time)
 - Most common month
