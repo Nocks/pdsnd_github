@@ -15,6 +15,10 @@ DAYS = [
 ]
 
 
+def print_dashes(num):
+    print('-' * num)
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -65,7 +69,7 @@ def get_filters():
             print(f'\nYou entered {day}, and that\'s not right.')
             continue
 
-    print('-'*40)
+    print_dashes(40)
     return city, month, day
 
 
@@ -127,7 +131,7 @@ def time_stats(df):
     most_common_start_hour = df['hour'].value_counts().idxmax()
     print(f"\n{most_common_start_hour} is the most common start hour.")
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def station_stats(df):
@@ -152,7 +156,7 @@ def station_stats(df):
           most_frequent_combination[1] + " are the most frequent combination" \
           + " of start station and end station trip.")
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def trip_duration_stats(df):
@@ -175,7 +179,7 @@ def trip_duration_stats(df):
     ))
     print("\n{} was the mean travel time".format(formatted_mean_travel_duration))
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def user_stats(df, city):
@@ -201,7 +205,7 @@ def user_stats(df, city):
         user_birth_year_details(df)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def user_gender_details(df):
