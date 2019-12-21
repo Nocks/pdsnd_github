@@ -3,7 +3,6 @@ import time
 import pandas as pd
 import numpy as np
 
-from pudb import set_trace
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -14,6 +13,11 @@ MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 DAYS = [
     'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'
 ]
+
+
+def print_dashes(num):
+    print('-' * num)
+
 
 def get_filters():
     """
@@ -51,7 +55,6 @@ def get_filters():
             print(f'\nYou entered {month}, and that\'s not right.')
             continue
 
-
     # get user input for day of week (all, monday, tuesday, ... sunday)
     input_message = (f"\nAvailable days are: {DAYS}. \n" + \
                      "Enter which day you want analysis on or 'all' " \
@@ -66,8 +69,7 @@ def get_filters():
             print(f'\nYou entered {day}, and that\'s not right.')
             continue
 
-
-    print('-'*40)
+    print_dashes(40)
     return city, month, day
 
 
@@ -97,7 +99,6 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-
         month = MONTHS.index(month) + 1
 
         # filter by month to create the new dataframe
@@ -122,19 +123,15 @@ def time_stats(df):
     most_common_month = MONTHS[most_common_month_int - 1]
     print(f"\n{most_common_month.title()} is the most common month.")
 
-
     # display the most common day of week
     most_common_day_of_week = df['day_of_week'].value_counts().idxmax()
     print(f"\n{most_common_day_of_week} is the most common day of week.")
 
-
     # display the most common start hour
     most_common_start_hour = df['hour'].value_counts().idxmax()
     print(f"\n{most_common_start_hour} is the most common start hour.")
-
-
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def station_stats(df):
@@ -151,18 +148,15 @@ def station_stats(df):
     most_used_end_station = df['End Station'].value_counts().idxmax()
     print(f"\n{most_used_end_station} is the most commonly used end station.")
 
-
     # display most frequent combination of start station and end station trip
-
     most_frequent_combination = df.groupby(
         ['Start Station', 'End Station']
     ).size().idxmax()
     print("\n" + most_frequent_combination[0] + " and " + \
           most_frequent_combination[1] + " are the most frequent combination" \
           + " of start station and end station trip.")
-
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def trip_duration_stats(df):
@@ -184,10 +178,8 @@ def trip_duration_stats(df):
         seconds=int(mean_travel_duration_seconds)
     ))
     print("\n{} was the mean travel time".format(formatted_mean_travel_duration))
-
-
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def user_stats(df, city):
@@ -213,7 +205,7 @@ def user_stats(df, city):
         user_birth_year_details(df)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print_dashes(40)
 
 
 def user_gender_details(df):
@@ -232,7 +224,6 @@ def user_birth_year_details(df):
 
     # Fetch 'Birth Year'
     birth_year = df['Birth Year']
-
     print()
 
     # the most common birth year
@@ -282,7 +273,6 @@ def display_raw_data(df):
 
     intial_request_message = "\nWould you like to see the first five (5) " \
     + "raw data? Enter yes or no. "
-
     subsequent_request_message = "\nWould you like to see the next five " \
      + "(5) raw data? Enter yes or no. "
 
