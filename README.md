@@ -2,7 +2,7 @@
 This project was created on 16th December, 2019, and main repo can be found [here](https://github.com/Nocks/explore-us-bikeshare-data).
 
 ## Explore US Bikeshare Data
-This was my 2nd Project of the [Programming for Data Science with Python](https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104) Nanodegree Program from Udacity.
+This was my 2nd Project of the [Programming for Data Science with Python](https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104) Nanodegree program from Udacity.
 
 ### Description
 In this project, I wrote Python code to import US bike share data and answered interesting questions about it by computing descriptive statistics. I also wrote a script that takes in raw input to create an interactive experience in the terminal to present these statistics.
